@@ -48,8 +48,8 @@ export function OrderStatusSection({
         toast({
           title: (
             <span className="flex items-center text-md w-full justify-center">
-              <Clock1 className="mr-2 text-grey-500" /> Payment successful!
-              Thank you!
+              <Clock1 className="mr-2 text-grey-500" /> Your payment is
+              processing. Please make sure you are checking out properly.
             </span>
           ),
         });

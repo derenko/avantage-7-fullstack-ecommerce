@@ -2,7 +2,7 @@
 
 ## Motivation
 
-Learn more about Next.js App Router and try using it for production (almost) app.
+Learn more about Next.js App Router and try using it for pet project app.
 
 ## Tech Stack
 
@@ -16,6 +16,15 @@ Learn more about Next.js App Router and try using it for production (almost) app
 - Vercel (deployment)
 - Others...
 ```
+
+## Features
+
+- [x] Auth
+- [x] Payments
+- [x] Shop
+- [ ] Admin Panel ⏳
+- [ ] Cron Jobs ⏳
+- [ ] Adaptive Design ⏳
 
 ## Latest Deployment:
 

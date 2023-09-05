@@ -2,7 +2,7 @@
 
 import { useToast } from "@/components/ui/use-toast";
 import { Product } from "@prisma/client";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { ArrowRight, Loader2, User2 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -20,6 +20,21 @@ export function CartActions({ products }: CartActionsProps) {
 
   const handleClickCheckout = async () => {
     setIsLoading(true);
+
+    if (!data?.user) {
+      toast({
+        title: (
+          <span className="flex items-center text-md w-full justify-center">
+            <User2 className="mr-2 text-grey-500" /> You need to sign in before
+            checking out!
+          </span>
+        ),
+      });
+
+      setIsLoading(false);
+
+      return;
+    }
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_URL}/cart/api`, {
@@ -58,9 +73,7 @@ export function CartActions({ products }: CartActionsProps) {
       <button
         onClick={handleClickCheckout}
         className="rounded-md ease-in duration-100 flex flex-row items-center justify-center text-[14px] bg-zinc-700 hover:bg-zinc-900 text-gray-100 px-6 py-3"
-        disabled={
-          status === "loading" || status === "unauthenticated" || isLoading
-        }
+        disabled={status === "loading" || isLoading}
       >
         Checkout
         {isLoading ? (
